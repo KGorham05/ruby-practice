@@ -11,7 +11,7 @@ def promptUser
    encode_message(secret_message, shift_value)
 end
 
-def encode_message(message, shift_value) 
+def encode_message(message, value) 
    # create an array of the alphabet to be used by the cipher
    lowercase_alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
    uppercase_alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
@@ -35,7 +35,7 @@ def encode_message(message, shift_value)
          isUppercase = true
       end
       # add the shift factor to that index position
-      encoded_position = array_position + shift_value
+      encoded_position = array_position + value
       # add logic to check if the new index position will be > 25 
       if encoded_position > 25 
          dmod = encoded_position.divmod(26)
