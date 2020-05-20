@@ -8,6 +8,7 @@ def prompt_user
    # save as a var
    value = gets.chomp.to_i
    # pass the string and the shift value into a method
+   puts message;
    return [message, value]
 end
 
@@ -26,10 +27,10 @@ def encode_message(secret_message, shift_value)
       # if I don't find it in the lowercase array, look for it in the uppercase array
       if array_position == nil
          array_position = uppercase_alphabet.index(letter)
-         # if it's not in either letter array, it's a number or a symbol
+         # if it's not in either letter array, it's a number, symbol, or whitespace
          if array_position == nil
-            puts "This cipher does not encode numbers or symbols, please try again!"
-            return
+            encoded_array.push(letter)
+            next
          end
          isUppercase = true
       end
